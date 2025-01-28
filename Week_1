@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cmath>
+//#include "functionSum.h"
+
+
+using namespace std; // if not used, must write std::cout or std::endl
+
+// Adding
+int sumUpTo(int a, int b = 1){
+    return (a/2) * (b + a); // formula for the sum of arithmetic series
+}
+
+float sumReciprocalNormal(int a, int b = 1){
+    float sum = 0; 
+    for (float i = b; i <= a; i++) { // For loop, increments/adding the values i from 1 to 1/n , return float number. 
+    sum += 1/i;
+    }
+    return sum;
+}
+
+float sumReciprocalRev(int a, int b = 1){
+    float sum_rev = 0;
+    for (float i = a; i >= b; i--){ // For loop, post decrement, decreases the value i and add values from 1/n to 1.
+    sum_rev += 1/i;
+    } 
+    return sum_rev;
+}
+
+// Multiplication
+float sumMysteryNormal(int a, int b = 1){
+    float sumN = 0;
+    for (float i = b; i<=a ; i++){
+    sumN += 1/(i*i);
+    } 
+    return sumN;
+}
+
+float sumMysteryRev( int a, int b = 1){
+    float sumN_rev = 0;
+    for (float i = a; i>=b ; i--){
+    sumN_rev += 1/(i*i);
+    } 
+    return sumN_rev;
+}
+
+
+int main() {
+    // Problem One
+    cout << sumUpTo(100) << '\n';
+
+    // Problem Two
+    
+    // Part a
+    cout << sumReciprocalNormal(100) << '\n';
+    // Part b
+    cout << sumReciprocalRev(100) << '\n';
+    
+    //Compare a and b
+    cout << "Compare : Part A uses post-increment for loop to add values from 1 to 1/n. In contrast, part B uses post-decrement for loop to add values from 1/n to 1" << endl;
+   
+    // Problem Three
+    cout << sumMysteryNormal(100) << '\n';
+    cout << sumMysteryRev(100) << '\n';
+
+    return 0;
+}
